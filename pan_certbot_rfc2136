@@ -69,7 +69,7 @@ elif [[ "$PACERT" == *'status="success" code="7"'* ]]; then
     if [ -e /etc/letsencrypt/live/$FQDN/cert.pem ]; then
         # If the local certificate for the FQDN exists but isn't present on Palo Alto, it will try to load the certificate
         echo "Certificate exists locally, uploading to Palo Alto."
-        UpdateCerts
+        UploadCerts
     else
         # If the certificate for FQDN doesn't exist both locally and in Palo Alto, it will try to renew and load the new certificate
         echo "Certificate for $FQDN not found! generating new certificate!"
